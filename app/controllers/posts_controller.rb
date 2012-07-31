@@ -16,11 +16,16 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post = Post.find(params[:id])
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
+    if Post.exists? :id => params[:id]
+      @post = Post.find(params[:id])
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @post }
+      end
+
+    else
+      redirect_to(posts_path, :notice => "Sorry, the motherfucker post not exist, motherfucker!")
     end
   end
 
@@ -37,7 +42,11 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    if Post.exists? :id => params[:id]
+       @post = Post.find(params[:id])
+    else
+       redirect_to(posts_path, :notice => "Sorry, the motherfucker post not exist, motherfucker!")
+    end
   end
 
   # POST /posts
@@ -59,16 +68,20 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
+    if Post.exists? :id => params[:id]
+      @post = Post.find(params[:id])
 
-    respond_to do |format|
-      if @post.update_attributes(params[:post])
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @post.update_attributes(params[:post])
+          format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
       end
+    else
+       redirect_to(posts_path, :notice => "Sorry, the motherfucker post not exist, motherfucker!")
     end
   end
 
