@@ -42,8 +42,4 @@
 	}
 	td{
 		padding: 4px 4px 4px 4px;
-		border-left: 1px solid;
-	}
-	.titulo{
-		font-style: bold;
 	}
