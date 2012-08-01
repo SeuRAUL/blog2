@@ -1,0 +1,13 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//<style type="text/css">
+			body{
+				background-color:#000EEE;
+			}
+			div{
+                                color:#FFF;
+			}
+			a:visited{
+				color:#F0F;
+			}

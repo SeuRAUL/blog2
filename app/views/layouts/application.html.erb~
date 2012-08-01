@@ -14,7 +14,9 @@
    <div id="notice"><%= flash[:notice] %></div>
 <% end %>
 
+<hr/>
 <%= yield %>
+<hr/>
 
 </div>
 </body>
