@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  before_filter :authenticate_user!
 
-  http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+  # http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
 
   # GET /posts
   # GET /posts.json
@@ -32,11 +33,15 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
-    @post = Post.new
+    if user_signed_in?
+      @post = Post.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @post }
+      respond_to do |format|
+        format.html # new.html.erb
+        format.json { render json: @post }
+      end
+    else
+      redirect_to(posts_path)
     end
   end
 

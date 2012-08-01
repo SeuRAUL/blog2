@@ -1,4 +1,8 @@
 Blog2::Application.routes.draw do
+  devise_for :users
+
+  devise_for :models
+
   resources :posts do
     resources :comments
   end
