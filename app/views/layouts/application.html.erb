@@ -7,15 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div id="principal">
-	<div id="top">BLOG4SOFT</div>
 
-<% if flash[:notice] %>
-   <div id="notice"><%= flash[:notice] %></div>
-<% end %>
+	<div id="span12">
+		<div id="top">BLOG4SOFT</div>
 
-<%= yield %>
+		<% if flash[:notice] %>
+		   <div id="notice"><%= flash[:notice] %></div>
+		<% end %>
 
-</div>
+		<%= yield %>
+
+	</div>
+
 </body>
+
 </html>

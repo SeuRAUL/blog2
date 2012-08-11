@@ -11,13 +11,13 @@
  *= require_self
  *= require_tree .
  */
-	body{
-		background-color: #EEE;
-	}
 	div{
-		color:#000;
-		/*border:1px solid #F00;*/
-		background-color: #EEE;
+		background: #EEE;
+		font-family: "Times New Roman", Times, serif;
+	}
+	.link{
+		font: bold;
+		text-align: center;
 	}
 	#principal{
 	    margin: auto;
@@ -25,6 +25,7 @@
 	    background-position: center;
 	}
 	#top{
+		font-family: Impact;
 		height: 40px;
 		margin: auto;
 		text-align: center;
@@ -39,6 +40,9 @@
 	}
 	#list{
 		text-align: center;
+	}
+	#name{
+		text-align: right;
 	}
 	td{
 		padding: 5px 5px 5px 5px;
